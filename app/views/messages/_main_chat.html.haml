@@ -1,0 +1,35 @@
+.chat
+  .chat-info
+    .group-list
+      .group-name
+        test
+      .member-name
+        Member:name
+      .edit-btn
+        Edit
+  .chat-main
+    .message-list
+      .message-name
+        kr
+      .message-date
+        2020/6/5(fri)12:30:01
+    .message-box
+      .message-content
+        こんにちは！
+    .message-list
+      .message-name
+        pr
+      .message-date
+        2020/6/5(fri)12:40:01
+    .message-box
+      .message-content
+        こんにちワン
+      .message-name
+  .chat-message
+    %form.forms
+      .form-inputbox
+        %input.form-text{"placeholder": "type a message","type": "text"}
+          %label{class: "image-btn"}
+            = icon('fas', 'image')
+            %input{type: "file", class: "img-file"}
+        %input.form-submit{"name": "commit", "type": "submit", "value": "Send"}

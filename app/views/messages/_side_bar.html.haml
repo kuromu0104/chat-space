@@ -2,17 +2,17 @@
   .side-bar__list
     .side-bar__list__top-item
       .side-bar__list__top-item__name
-        name
+        = current_user.name
       .side-bar__list__top-item__icon 
-        = link_to "#", class: "edit-btn" do
+        = link_to new_group_path, class: "edit-btn" do
           =icon('far', 'edit')
-        = link_to "#", class: "cog-btn" do
+        = link_to edit_user_path(current_user), class: "cog-btn" do
           =icon('fas', 'cog')
   .side-bar__group
-    .side-bar__group__list
-      .side-bar__group__name
-        techcamp
-      .side-bar__group__name
-        techexpert
-      .side-bar__group__message
-        まだメッセージはありません
+    - current_user.groups.each do |group|
+      .side-bar__group__list
+        = link_to '#' do
+          .side-bar__group__name
+            = group.name
+          .side-bar__group__message
+            まだメッセージはありません

@@ -1,9 +1,9 @@
 .side-bar
-  .side-bar__name
-    .side-bar__top-item
-      .side-bar__name
+  .side-bar__list
+    .side-bar__list__top-item
+      .side-bar__list__top-item__name
         = current_user.name
-      .side-bar-__icon
+      .side-bar__list__top-item__icon 
         = link_to new_group_path, class: "edit-btn" do
           =icon('far', 'edit')
         = link_to edit_user_path(current_user), class: "cog-btn" do

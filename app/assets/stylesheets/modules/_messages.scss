@@ -5,14 +5,13 @@
 .wrapper {
   display: flex;
   .side-bar {
-    &__name {
+    &__list {
       background-color: #253141;
       height: 100px;
-      width: 300px;
       display: flex;
-      justify-content: center;
       align-items: center;
-      &__item {
+      padding: 0 20px;
+      &__top-item {
         height: 20px;
         width: 260px;
         background-color: #253141;
@@ -51,41 +50,41 @@
       &__list {
         padding: 20px 20px 40px 20px;
       }
-        &__name {
-          font-size: 15px;
-          margin-bottom: 15px;
-          color: #ffffff ;
-        }
-        &__message {
-          font-size: 11px;
-          color: #ffffff;
-        }
+      &__name {
+        font-size: 15px;
+        margin-bottom: 15px;
+        color: #ffffff ;
+      }
+      &__message {
+        font-size: 11px;
+        color: #ffffff;
+      }
     }
   }
 
   .chat {
     width: calc(100vw - 300px);
-    info {
+    &__info {
       height: 100px;
       width: calc(100vw - 300px);
       background-color: #ffffff;
       border: 1px solid #eeeeee;
       position: relative;
-      .group-list {
+      &__group-list {
         display: flex;
-        .group-name {
+        &__group-name {
           font-size: 20px;
           color: #333333;
           padding: 35px 0 15px 40px;
         }
-        .member-name {
+        &__member-name {
           font-size: 12px;
           color: #999999;
           position: absolute;
           left: 40px;
           bottom: 0;
         }
-        .edit-btn {
+        &__edit-btn {
           font-size: 16px;
           text-align: center;
           color: #38aef0;

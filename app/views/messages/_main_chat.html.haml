@@ -2,12 +2,15 @@
   .chat__info
     .chat__info__group-list
       .chat__info__group-list__group-name
-        test
+        = @group.name
       .chat__info__group-list__member-name
-        Member:name
-      .chat__info__group-list__edit-btn
+        Member:
+        - @group.users.each do |user|
+          = user.name
+      = link_to edit_group_path(@group), class: "chat__info__group-list__edit-btn" do
         Edit
   .message
+    = render @messages
     .message__list
       .message__list__name
         kr
@@ -23,12 +26,12 @@
         2020/6/5(fri)12:40:01
     .message__box
       .message__box__content
-        こんにちワン
+        こんばんは
   .chat-message
-    %form.forms
+    = form_with model: [@group, @message], html: {class: "forms"}, local: true do |f|
       .form-inputbox
-        %input.form-text{"placeholder": "type a message","type": "text"}
-          %label{class: "image-btn"}
-            = icon('fas', 'image')
-            %input{type: "file", class: "img-file"}
-        %input.form-submit{"name": "commit", "type": "submit", "value": "Send"}
+        = f.text_field :content, class: 'form-text', placeholder: 'type a message'
+        = f.label :image, class: 'form-btn' do
+          = icon('far', 'image', class: 'img-btn')
+          = f.file_field :image, class: 'img-file'
+      = f.submit 'Send', class: 'form-submit'

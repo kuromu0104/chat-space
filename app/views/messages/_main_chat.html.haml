@@ -9,24 +9,24 @@
           = user.name
       = link_to edit_group_path(@group), class: "chat__info__group-list__edit-btn" do
         Edit
-  .message
+  .messages
     = render @messages
-    .message__list
-      .message__list__name
-        kr
-      .message__list__date
-        2020/6/5(fri)12:30:01
-    .message__box
-      .message__box__content
-        こんにちは！
-    .message__list
-      .message__list__name
-        pr
-      .message__list__date
-        2020/6/5(fri)12:40:01
-    .message__box
-      .message__box__content
-        こんばんは
+    .messages__list
+      .messages__list__name
+        
+      .messages__list__date
+       
+    .messages__box
+      .messages__box__content
+       
+    .messages__list
+      .messages__list__name
+       
+      .messages__list__date
+     
+    .messages__box
+      .messages__box__content
+     
   .chat-message
     = form_with model: [@group, @message], html: {class: "forms"}, local: true do |f|
       .form-inputbox

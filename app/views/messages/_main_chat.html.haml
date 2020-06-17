@@ -6,7 +6,7 @@
       .chat__info__group-list__member-name
         Member:
         - @group.users.each do |user|
-          = user.name
+          = user.name 
       = link_to edit_group_path(@group), class: "chat__info__group-list__edit-btn" do
         Edit
   .messages
@@ -30,24 +30,8 @@
   .chat-message
     = form_with model: [@group, @message], html: {class: "forms"}, local: true do |f|
       .form-inputbox
-<<<<<<< Updated upstream
         = f.text_field :content, class: 'form-text', placeholder: 'type a message'
         = f.label :image, class: 'form-btn' do
           = icon('far', 'image', class: 'img-btn')
           = f.file_field :image, class: 'img-file'
       = f.submit 'Send', class: 'form-submit'
-=======
-        %input.form-text{"placeholder": "type a message","type": "text"}
-          %label{class: "image-btn"}
-            = icon('fas', 'image')
-            %input{type: "file", class: "img-file"}
-        %input.form-submit{"name": "commit", "type": "submit", "value": "Send"}
-  .Footer
-    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
-      .Form__contents
-        = f.text_field :content, class: 'Form__inputContent', placeholder: 'type amessage'
-        = f.label :image, class: 'Form__inputImage' do
-          = icon('far', 'image', class: 'Form__icon')
-          = f.file_field :image, class: 'Hidden'
-      = f.submit 'Send', class: 'Form__submit'
->>>>>>> Stashed changes

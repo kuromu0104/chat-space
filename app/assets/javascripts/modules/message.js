@@ -2,12 +2,13 @@ $(function(){
   function buildHTML(message){
     if ( message.image ) {
       let html =
-        `<div class="chat">
-          <div class="chat__info">
-            <div class="messages__list__name">
+        `<div class="messages" data-message-id=${message.id}>
+          <div class="message">
+            <div class="message__list">
+            <div class="message__list__name">
               ${message.user_name}
             </div>
-            <div class="messages__list__date">
+            <div class="message__list__date">
               ${message.created_at}
             </div>
           </div>
@@ -15,18 +16,18 @@ $(function(){
             <p class="message__box__content">
               ${message.content}
             </p>
-            <img class="Message__image" src="${message.image}">
+            <img class="message_image" src="${message.image}">
           </div>
         </div>`
       return html;
     } else {
       let html =
-      `<div class="chat">
-        <div class="chat__info">
-          <div class="messages__list__name">
+      `<div class="messages" data-message-id=${message.id}>
+        <div class="message">
+          <div class="message__list__name">
             ${message.user_name}
           </div>
-          <div class="messages__list__date">
+          <div class="message__list__date">
             ${message.created_at}
           </div>
         </div>
@@ -41,7 +42,7 @@ $(function(){
   }
 
   $('.forms').on('submit', function(e){
-    e.preventDefault()
+    e.preventDefault();
     let formData = new FormData(this);
     let url = $(this).attr('action');
     $.ajax({
@@ -55,12 +56,13 @@ $(function(){
     .done(function(data){
       let html = buildHTML(data);
       $('.messages').append(html);
-      $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
-      $('form')[0].reset();
-      $('.form-submit').prop('disabled', false);
+      $('forms')[0].reset();
+      $('messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+      $('.form-submit').prop("disabled", false);
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
+      $('.form-submit').prop("disabled", false);
     });
   });
 });

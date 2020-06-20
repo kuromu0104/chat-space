@@ -54,6 +54,7 @@ $(function(){
       contentType: false
     })
     .done(function(data){
+      if (messages.length !== 0) {
       let html = buildHTML(data);
       $('.messages').append(html);
       $('forms')[0].reset();
@@ -65,4 +66,7 @@ $(function(){
       $('.form-submit').prop("disabled", false);
     });
   });
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessages, 7000);
+  }
 });

@@ -49,6 +49,7 @@
       height: calc(100vh - 100px);
       &__current_user__list {
         padding: 20px 20px 40px 20px;
+        text-decoration: none;
         &__name {
           font-size: 15px;
           margin-bottom: 15px;
@@ -58,12 +59,11 @@
           font-size: 11px;
           color: #ffffff;
         }
+        a {
+          text-decoration: none;
+        }
       }
     }
-  }
-
-  .a {
-    text-decoration: none;
   }
 
   .chat {

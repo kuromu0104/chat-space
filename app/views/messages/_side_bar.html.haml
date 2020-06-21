@@ -11,7 +11,7 @@
   .side-bar__group
     - current_user.groups.each do |group|
       .side-bar__group__current_user__list
-        = link_to ' group_messages_path',class: "a" do
+        = link_to ' group_path',class: "a" do
           .side-bar__group__current_user__list__name
             = group.name
           .side-bar__group__current_user__list__message

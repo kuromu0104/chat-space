@@ -11,21 +11,6 @@
         Edit
   .messages
     = render @messages
-    .messages__list
-      .messages__list__name
-        
-      .messages__list__date
-       
-    .messages__box
-      .messages__box__content
-       
-    .messages__list
-      .messages__list__name
-       
-      .messages__list__date
-     
-    .messages__box
-      .messages__box__content
      
   .chat-message
     = form_with model: [@group, @message], html: {class: "forms"}, local: true do |f|

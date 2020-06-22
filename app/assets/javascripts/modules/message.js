@@ -65,7 +65,7 @@ $(function(){
       $('messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
       $('.form-submit').prop("disabled", false);
     }
-  });
+  })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
       $('.form-submit').prop("disabled", false);
@@ -73,4 +73,4 @@ $(function(){
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
     setInterval(reloadMessages, 7000);
   }
-});
+})

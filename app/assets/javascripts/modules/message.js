@@ -45,7 +45,7 @@ $(function(){
 
   $('.forms').on('submit', function(e){
     e.preventDefault();
-    var reloadMEssages = function() {
+    var reloadMessages = function() {
     let formData = new FormData(this);
     let url = $(this).attr('action');
     var last_message_id = $('.message:last').data("message-id");

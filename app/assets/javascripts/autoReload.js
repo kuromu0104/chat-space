@@ -2,9 +2,10 @@ $(function(){
   function buildHTML(message){
     if ( message.image ) {
       let html =
-        `<div class="messages" data-message-id=${message.id}>
-          <div class="message">
-            <div class="message__list__name">
+        // `<div class="messages" data-message-id=${message.id}>
+        `<div class="message" data-message-id=${message.id}>
+          <div class="message__list">
+             <div class="message__list__name">
               ${message.user_name}
             </div>
             <div class="message__list__date">
@@ -21,21 +22,22 @@ $(function(){
       return html;
     } else {
       let html =
-      `<div class="messages" data-message-id=${message.id}>
-        <div class="message">
-          <div class="message__list__name">
-            ${message.user_name}
+      // `<div class="messages" data-message-id=${message.id}>
+        `<div class="message" data-message-id=${message.id}>
+          <div class="message__list">
+            <div class="message__list__name">
+              ${message.user_name}
+            </div>
+            <div class="message__list__date">
+              ${message.created_at}
+            </div>
           </div>
-          <div class="message__list__date">
-            ${message.created_at}
+          <div class="message__box">
+            <p class="message__box__content">
+              ${message.content}
+            </p>
           </div>
-        </div>
-        <div class="message__box">
-          <p class="message__box__content">
-            ${message.content}
-          </p>
-        </div>
-      </div>`
+        </div>`
       return html;
     };
   }

@@ -5,7 +5,6 @@ $(function(){
     if ( message.image ) {
       let html =
         `<div class="message" data-message-id=${message.id}>
-          <div class="message">
             <div class="message__list">
             <div class="message__list__name">
               ${message.user_name}
@@ -13,7 +12,6 @@ $(function(){
             <div class="message__list__date">
               ${message.created_at}
             </div>
-          </div>
           <div class="message__box">
             <p class="message__box__content">
               ${message.content}
@@ -25,7 +23,6 @@ $(function(){
     } else {
       let html =
       `<div class="message" data-message-id=${message.id}>
-        <div class="message">
           <div class="message__list">
             <div class="message__list__name">
               ${message.user_name}
@@ -34,7 +31,6 @@ $(function(){
               ${message.created_at}
             </div>
           </div>
-        </div>
         <div class="message__box">
           <p class="message__box__content">
             ${message.content}

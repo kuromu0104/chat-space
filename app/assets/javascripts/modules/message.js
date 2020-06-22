@@ -1,4 +1,6 @@
 $(function(){
+  var last_message_id = $('.message:last').data("message-id");
+  console.log(last_message_id);
   function buildHTML(message){
     if ( message.image ) {
       let html =
@@ -43,17 +45,19 @@ $(function(){
 
   $('.forms').on('submit', function(e){
     e.preventDefault();
+    var reloadMEssages = function() {
     let formData = new FormData(this);
     let url = $(this).attr('action');
+    var last_message_id = $('.message:last').data("message-id");
     $.ajax({
-      url: url,
+      url: "api/messages",
       type: "POST",
-      data: formData,
+      data: {id: last_message_id},
       dataType: 'json',
       processData: false,
       contentType: false
     })
-    .done(function(data){
+    .done(function(data) {
       if (messages.length !== 0) {
       let html = buildHTML(data);
       $('.messages').append(html);
@@ -66,7 +70,7 @@ $(function(){
       alert("メッセージ送信に失敗しました");
       $('.form-submit').prop("disabled", false);
     });
-  });
+  };
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
     setInterval(reloadMessages, 7000);
   }
